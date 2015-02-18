@@ -6,7 +6,29 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('level', { path : 'level/:id'});
+
+  this.route('login');
+
+  /**
+   * This generates the following URLS
+   *
+   * /game/1
+   * /game/1/index
+   * /game/1/win
+   * /game/1/level/1
+   * /game/1/success/1
+   *
+   */
+  this.resource('game', { path : 'game/:id' }, function () {
+
+    this.route('win'); // game/1/win
+    this.route('level', { path : 'level/:id' }); //  game/1/level/1
+    this.route('success', { path : 'success/:id' });
+
+  });
+
+  this.route('create');
+
 });
 
 export default Router;

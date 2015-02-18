@@ -1,0 +1,8 @@
+<h3>Current Score: {{score}}</h3>
+<div class="game-screen">
+    {{#each button in model.buttons}}
+      <div class="button" {{action "buttonPress" button}}>
+          <div class="{{unbound button.color}}"></div>
+      </div>
+    {{/each}}
+</div>
